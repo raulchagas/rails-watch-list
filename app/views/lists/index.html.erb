@@ -1,12 +1,15 @@
 <div class="container">
-  <h1>All Movie Lists</h1>
-  <% @lists.each do |list| %>
-    <ul>
-      <li>
-        <%= link_to list.name, list_path(list) %>
-      </li>
-    </ul>
-  <% end %>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/10599961/pexels-photo-10599961.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);">
+    <div class="container">
+      <h1><strong>Save Movies</strong>, watch whenever...</h1>
+    </div>
+  </div>
   <hr>
-  <%= link_to "Create a List", new_list_path %>
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <div class="card-category" style="background-image: url( <%= list.movies.first.poster_url %> ">
+        <%= link_to list.name, list_path(list), class: "index-link" %>
+      </div>
+    <% end %>
+  </div>
 </div>

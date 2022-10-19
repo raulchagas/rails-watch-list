@@ -1,11 +1,18 @@
 <h1><%= @list.name %></h1>
-<% @list.movies.each do |movie| %>
-  <ul>
-    <li><%= movie.title %>
-      <p><%= movie.overview %></p>
-    </li>
-  </ul>
-<% end %>
+<%= link_to "+ Add a movie +", new_list_bookmark_path(@list) %>
+<div style="display: flex; flex-flow: row wrap">
+  <% @list.movies.each do |movie| %>
+    <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+    <div class="card" style="width: 18rem; margin: 20px">
+      <%= image_tag movie.poster_url %>
+      <div class="card-body">
+        <h5 class="card-title"><%= movie.title %></h5>
+        <p class="card-text"><%= movie.overview %></p>
+        <p class="card-text"><%= bookmark.comment%></p>
+        <%= link_to "Remove from list", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-secondary"%>
+      </div>
+    </div>
+  <% end %>
+</div>
 <hr>
-<%= link_to "Add a movie", new_list_bookmark_path(@list) %>
 <%= link_to "Back to Lists", lists_path %>
