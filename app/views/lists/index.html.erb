@@ -7,9 +7,17 @@
   <hr>
   <div class="cards">
     <% @lists.each do |list| %>
-      <div class="card-category" style="background-image: url( <%= list.movies.first.poster_url %> ">
-        <%= link_to list.name, list_path(list), class: "index-link" %>
-      </div>
-    <% end %>
+      <% if list.movies.blank? %>
+        <div class="card-category">
+          <%= link_to list.name, list_path(list), class: "index-link" %>
+        <% else %>
+          <div class="card-category" style="background-image: url( <%= list.movies.first.poster_url %> ">
+            <%= link_to list.name, list_path(list), class: "index-link" %>
+            <%= link_to list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "card-remove" do %>
+            <i class="fa-regular fa-trash-can" ></i>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-</div>
