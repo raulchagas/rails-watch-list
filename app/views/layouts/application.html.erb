@@ -9,30 +9,42 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
-  <div class="container">
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-      <div class="container-fluid">
-        <%= link_to lists_path, class: "navbar-brand" do %>
-          <i class="fa-solid fa-film" style= "font-size: 30px"></i>
-          <i class="fa-solid fa-film" style= "font-size: 30px; color: blue"></i>
-          <i class="fa-solid fa-film" style= "font-size: 30px"></i>
-        <% end %>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto">
-            <%# if user_signed_in? %>
-            <li class="nav-item active">
-              <%= link_to "All Lists", lists_path, class: "nav-link" %>
+    <div class="container">
+      <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+        <div class="container-fluid">
+          <%= link_to lists_path, class: "navbar-brand" do %>
+            <i class="fa-solid fa-film" style= "font-size: 30px"></i>
+            <i class="fa-solid fa-film" style= "font-size: 30px; color: blue"></i>
+            <i class="fa-solid fa-film" style= "font-size: 30px"></i>
+          <% end %>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+              <%# if user_signed_in? %>
               <li class="nav-item active">
-                <%= link_to "Create a List", new_list_path, class: "nav-link"%>
-              </li>
-            </ul>
+                <%= link_to "All Lists", lists_path, class: "nav-link" %>
+                <li class="nav-item active">
+                  <%= link_to "Create a List", new_list_path, class: "nav-link"%>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      <%= yield %>
+        <%= yield %>
+        <div class="footer">
+          <%# <div class="footer-links">
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div> %>
+          <div class="footer-copyright">
+            Hope you enjoyed my first app! <i class="fas fa-heart"></i>
+          </div>
+        </div>
       </div>
     </body>
   </html>
