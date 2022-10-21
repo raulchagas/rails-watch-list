@@ -20,9 +20,9 @@
           <%= image_tag movie.poster_url %>
           <div class="card-body">
             <h5 class="card-title"><%= movie.title %></h5>
-            <h6 class="card-title">Rating: <%= movie.rating %></h5>
+            <h6 class="card-title"><span class="fw-bolder text-muted"><%= movie.rating %></span><i class="fa-solid fa-star" style="color: #FEDE01;"></i></h5>
             <p class="card-text"><%= movie.overview %></p>
-            <p class="card-text"><%= bookmark.comment%></p>
+            <p class="card-text"><i class="fa-sharp fa-solid fa-quote-left me-1"></i></i><strong><%= bookmark.comment%></strong></p>
             <%= link_to "Remove from list", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-secondary"%>
           </div>
         </div>
