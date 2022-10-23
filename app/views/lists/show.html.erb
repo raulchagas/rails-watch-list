@@ -16,7 +16,7 @@
     <div style="display: flex; flex-flow: row wrap">
       <% @list.movies.each do |movie| %>
         <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-        <div class="card" style="width: 18rem; margin: 20px">
+        <div class="card" style="width: 36rem; margin: 20px">
           <%= image_tag movie.poster_url %>
           <div class="card-body">
             <h5 class="card-title"><%= movie.title %></h5>
